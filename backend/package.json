@@ -1,0 +1,32 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "university server",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Saqifur-Rahman/CRUD_Application.git"
+  },
+  "author": "Saqifur Rahman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Saqifur-Rahman/CRUD_Application/issues"
+  },
+  "homepage": "https://github.com/Saqifur-Rahman/CRUD_Application#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "pg": "^8.6.0",
+    "pg-hstore": "^2.3.4",
+    "pgtools": "^0.3.2",
+    "sequelize": "^6.6.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
+  }
+}
