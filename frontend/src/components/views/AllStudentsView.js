@@ -25,7 +25,7 @@ const useStyles = makeStyles({
 const AllStudentsView = (props) => {
   const classes = useStyles();
   if (!props.allStudents.length) {
-    return <div>There are no students.</div>;
+    return <div><Base/><h1 style={{ marginLeft: 20 }}>There are no students.</h1></div>;
   }
 
   
@@ -36,7 +36,7 @@ const AllStudentsView = (props) => {
       <h1 style={{ marginLeft: 20 }}>
         All Students
         <Button variant="contained" color="primary" style={{ float: 'right', marginRight: 20 }}>
-          <Link to='/student' style={{ textDecoration: 'none', color: 'white' }}>
+          <Link to='/students/add' style={{ textDecoration: 'none', color: 'white' }}>
             Add
           </Link>
         </Button>  

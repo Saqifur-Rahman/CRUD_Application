@@ -1,8 +1,12 @@
-import HomePageView from '../views/HomePageView';
+import Base from '../views/Base';
 
 const HomePageContainer = () => {
   return (
-    <HomePageView />
+    <div>
+      <Base />
+      <h1>Homepage</h1>
+      
+    </div>
   );
 };
 

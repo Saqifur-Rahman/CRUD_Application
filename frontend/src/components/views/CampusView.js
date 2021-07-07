@@ -1,10 +1,10 @@
-import HomePageView from "./HomePageView";
+import Base from "./Base";
 
 const CampusView = (props) => {
     const {campus} = props;
     return (
       <div>  
-        <HomePageView />  
+        <Base />  
         <h1>{campus.name}</h1>
         <p>{campus.description}</p>
         <ul>

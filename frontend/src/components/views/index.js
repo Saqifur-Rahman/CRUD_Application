@@ -4,3 +4,4 @@ export { default as CampusView } from "./CampusView";
 export { default as HomePageView } from "./HomePageView";
 export { default as AllStudentsView } from "./AllStudentsView";
 export { default as Base } from "./Base"
+export { default as AddStudentView } from "./AddStudentView"
