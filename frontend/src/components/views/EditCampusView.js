@@ -28,7 +28,7 @@ export default function EditCampusView(props) {
         }
 
         if(imageUrl === "") {
-            imageUrl = "https://www.kindpng.com/picc/m/50-504348_graduation-ceremony-square-academic-cap-silhouette-silhouette-student.png"
+            imageUrl = "https://lh5.googleusercontent.com/p/AF1QipP06OR0isErIP8-kuZzPdRVVseWC2u5WH3Lxjq8=w408-h306-k-no"
         }
         
         const postStudent = {
@@ -51,7 +51,7 @@ export default function EditCampusView(props) {
             <Base />
             <h1 style={{ textAlign: 'center' }}>Edit Campus</h1>
 
-          <form 
+          <form
             style={{ margin: 'auto', width: '30%' }}
             onSubmit={oneditCampus}
           >

@@ -23,7 +23,7 @@ export default function AddCampusView(props) {
     }
 
     if(imageUrl === "") {
-      imageUrl = "https://lh3.googleusercontent.com/proxy/j6AkPKSerSaRYJLlQ3UERbwb1KB-RUeQz-eYJfB2hP7HZkZvr0j4EYvFiElxmPdStzO1oE_PxXeiqvSROFCjSQ_EZr9ldRWeHEEs42zEqB9eA6bSJdA18tvn1BGh7CKaKNIGAOYDw7vmMY7CGnxQSYvszl6TzWc"
+      imageUrl = "https://lh5.googleusercontent.com/p/AF1QipP06OR0isErIP8-kuZzPdRVVseWC2u5WH3Lxjq8=w408-h306-k-no"
     }
 
     const postCampus = {
@@ -44,7 +44,7 @@ export default function AddCampusView(props) {
         <div>
           <h1 style={{ textAlign: 'center' }}>Add Student</h1>
 
-          <form 
+          <form
             style={{ margin: 'auto', width: '30%' }}
             onSubmit = {onAddCampus}
           >
