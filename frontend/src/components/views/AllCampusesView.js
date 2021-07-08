@@ -25,7 +25,7 @@ const useStyles = makeStyles({
 const AllCampusesView = (props) => {
   const classes = useStyles();
   if (!props.allCampuses.length) {
-    return <div>There are no campuses.</div>;
+    return <div><Base/><h1 style={{ marginLeft: 20 }}>There are no campuses.</h1></div>;
   }
 
   
