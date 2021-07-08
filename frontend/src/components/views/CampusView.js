@@ -1,5 +1,5 @@
 import Base from "./Base";
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 // Material UI
 import { makeStyles } from '@material-ui/core/styles';
@@ -8,6 +8,9 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Button from '@material-ui/core/Button'
+import InputLabel from '@material-ui/core/InputLabel';
+import Select from '@material-ui/core/Select';
+import FormControl from '@material-ui/core/FormControl';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,6 +40,9 @@ const useStyles = makeStyles((theme) => ({
     width: 64,
     height: 64,
   },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  }
 }));
 
 
@@ -45,7 +51,10 @@ export default function CampusView(props) {
     const {campus} = props;
     const {deleteCampus} = props;
     const {editStudent} = props
+    const {allStudents} = props
     const history = useHistory()
+
+    var [addStudent, setAddStudent] = useState(null)
 
     function delCampus(e) {
         e.preventDefault();
@@ -62,6 +71,17 @@ export default function CampusView(props) {
         }
         editStudent(remove_student)
         alert("Student removed successfully!")
+        window.location.reload()
+    }
+
+    function addStudentInCampus(e) {
+        e.preventDefault()
+        const add_student = {
+            "id": addStudent,
+            "campusId": campus.id
+        }
+        editStudent(add_student)
+        alert("Student added successfully!")
         window.location.reload()
     }
 
@@ -109,6 +129,31 @@ export default function CampusView(props) {
             <Typography variant="h5" component="h2" style={{ textAlign: 'center', marginTop: 30 }}>
                 STUDENTS ON CAMPUS
             </Typography>
+
+            <div>
+                <FormControl variant="filled" style={{ width: '50%', marginBottom: 10, marginLeft:'25%' }}>
+                    <InputLabel htmlFor="filled-age-native-simple">Students</InputLabel>
+                    <Select
+                    native
+                    value={addStudent}
+                    onChange = {(e) => setAddStudent(e.target.value)}
+                    inputProps={{
+                        name: 'student',
+                        id: 'filled-campus-native-simple',
+                    }}
+                    >
+                    <option aria-label="None" value={null}></option>
+                    {allStudents.map(s => (
+                        <option value={s.id}>{s.firstName} { s.lastName}</option>
+                    ))}
+                    </Select>
+                </FormControl>
+                <Button type="submit" variant="contained" color="primary" style={{ marginLeft: '40%' }} disableElevation
+                    onClick = {(e) => addStudentInCampus(e)}
+                >
+                    Add Student
+                </Button>
+            </div>
 
             {campus.students.map((student) => (
               <div>
