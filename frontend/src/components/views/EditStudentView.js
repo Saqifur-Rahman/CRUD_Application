@@ -22,7 +22,6 @@ export default function EditStudentView(props) {
     const classes = useStyles();
 
     const {student} = props
-    const {allCampuses} = props
     const {editStudent} = props
     const history = useHistory()
 

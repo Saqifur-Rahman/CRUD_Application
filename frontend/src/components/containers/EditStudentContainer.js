@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from "prop-types";
 import { connect } from "react-redux"
-import { fetchStudentThunk, editStudentThunk, fetchAllCampusesThunk } from "../../store/thunks"
+import { fetchStudentThunk, editStudentThunk } from "../../store/thunks"
 
 import { EditStudentView } from '../views'
 
@@ -9,7 +9,6 @@ class EditStudentContainer extends Component {
     componentDidMount() {
         // getting student ID from url
         this.props.fetchStudent(this.props.match.params.id)
-        this.props.fetchAllCampuses();
     }
 
     render() {
@@ -18,7 +17,6 @@ class EditStudentContainer extends Component {
                 <EditStudentView
                     student={this.props.student}
                     editStudent={this.props.editStudent}
-                    allCampuses={this.props.allCampuses}
                 />
             </div>
         )
@@ -29,7 +27,6 @@ class EditStudentContainer extends Component {
 const mapState = (state) => {
     return {
       student: state.student,
-      allCampuses: state.allCampuses
     }
   }
   
@@ -38,13 +35,10 @@ const mapState = (state) => {
     return {
       fetchStudent: (id) => dispatch(fetchStudentThunk(id)),
       editStudent: (student) => dispatch(editStudentThunk(student)),
-      fetchAllCampuses: () => dispatch(fetchAllCampusesThunk())
     }
   }
 
 EditStudentContainer.propTypes = {
-  allCampuses: PropTypes.array.isRequired,
-  fetchAllCampuses: PropTypes.func.isRequired,
   editStudent: PropTypes.func.isRequired,
   fetchStudent: PropTypes.func.isRequired,
   student: PropTypes.object.isRequired
