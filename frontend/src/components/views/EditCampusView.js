@@ -4,19 +4,8 @@ import { useHistory } from 'react-router-dom'
 // Material UI
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles((theme) => ({
-    formControl: {
-      minWidth: 120,
-    },
-    selectEmpty: {
-      marginTop: theme.spacing(2),
-    },
-}));
 
 export default function EditCampusView(props) {
-    const classes = useStyles();
 
     const {campus} = props
     const {editCampus} = props

@@ -1,4 +1,5 @@
 import Base from "./Base";
+import { useState, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 // Material UI
 import { makeStyles } from '@material-ui/core/styles';
@@ -43,6 +44,7 @@ export default function CampusView(props) {
     const classes = useStyles();  
     const {campus} = props;
     const {deleteCampus} = props;
+    const {editStudent} = props
     const history = useHistory()
 
     function delCampus(e) {
@@ -50,6 +52,17 @@ export default function CampusView(props) {
         deleteCampus(campus.id);
         alert("Campus deleted successfully!");
         history.push("/campuses")
+    }
+
+    function removeStudent(e, s) {
+        e.preventDefault();
+        const remove_student = {
+            "id": s.id,
+            "campusId": null
+        }
+        editStudent(remove_student)
+        alert("Student removed successfully!")
+        window.location.reload()
     }
 
     return (
@@ -125,7 +138,9 @@ export default function CampusView(props) {
                   </Grid>
                   <Grid item >
                       <Typography variant="subtitle1">ID: {student.id}</Typography>
-                      <Button size="small" variant="contained" color="secondary" style={{marginTop: 15}}>
+                      <Button size="small" variant="contained" color="secondary" style={{marginTop: 15}}
+                        onClick={(e) => removeStudent(e, student)}
+                      >
                             Delete
                         </Button>
                   </Grid>
