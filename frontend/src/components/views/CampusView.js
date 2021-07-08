@@ -42,7 +42,15 @@ const useStyles = makeStyles((theme) => ({
 export default function CampusView(props) {
     const classes = useStyles();  
     const {campus} = props;
-    
+    const {deleteCampus} = props;
+    const history = useHistory()
+
+    function delCampus(e) {
+        e.preventDefault();
+        deleteCampus(campus.id);
+        alert("Campus deleted successfully!");
+        history.push("/campuses")
+    }
 
     return (
       <div>  
@@ -75,7 +83,7 @@ export default function CampusView(props) {
                                 Edit
                             </Link>
                         </Button>
-                        <Button size="small" variant="contained" color="secondary" >
+                        <Button size="small" variant="contained" color="secondary" onClick={delCampus} >
                             Delete
                         </Button>
                         </Grid>
@@ -123,6 +131,8 @@ export default function CampusView(props) {
                   </Paper>
               </div>
             ))}
+
+        {campus.students.length === 0 ? <p style={{textAlign: 'center'}}>There are currently no students registered to this campus.</p> : ""}
 
                         
         </Paper>
