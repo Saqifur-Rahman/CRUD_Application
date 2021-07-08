@@ -106,7 +106,7 @@ export default function StudentView(props) {
                             </ButtonBase>
                         </Grid>
                         <Grid item xs={12} sm container>
-                    <Grid item xs container direction="column" spacing={2} style={{marginTop: 20}}>
+                    <Grid item xs container direction="column" spacing={2} >
                         <Grid item xs>
                             <Typography gutterBottom variant="subtitle1">
                             <Link to={`/campus/${student.campus.id}`} style={{ textDecoration: 'none' }}>
@@ -122,7 +122,7 @@ export default function StudentView(props) {
                         </Grid>
                         
                     </Grid>
-                    <Grid item style={{marginTop: 20}}>
+                    <Grid item >
                         <Typography variant="subtitle1">ID: {student.campus.id}</Typography>
                     </Grid>
                 </Grid>

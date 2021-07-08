@@ -115,7 +115,7 @@ export default function CampusView(props) {
                           </Link>
                           </Typography>
                           <Typography variant="body2" gutterBottom>
-                              <b>{student.gpa}</b>
+                              <b>{(student.gpa <= 0.0) ? "NA" : student.gpa}</b>
                           </Typography>
                           <Typography variant="body2" color="textSecondary">
                               <b>{student.email}</b>
@@ -125,6 +125,9 @@ export default function CampusView(props) {
                   </Grid>
                   <Grid item >
                       <Typography variant="subtitle1">ID: {student.id}</Typography>
+                      <Button size="small" variant="contained" color="secondary" style={{marginTop: 15}}>
+                            Delete
+                        </Button>
                   </Grid>
               </Grid>
           </Grid>
