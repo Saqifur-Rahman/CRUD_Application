@@ -5,7 +5,6 @@ import Base from "./Base";
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
@@ -18,7 +17,8 @@ const useStyles = makeStyles({
     maxWidth: 345,
   },
   media: {
-    height: 175,
+    height: 150,
+    objectFit: 'cover'
   },
 });
 
@@ -27,8 +27,6 @@ const AllStudentsView = (props) => {
   if (!props.allStudents.length) {
     return <div><Base/><h1 style={{ marginLeft: 20 }}>There are no students.</h1></div>;
   }
-
-  
 
   return (
     <div>
@@ -41,7 +39,7 @@ const AllStudentsView = (props) => {
           </Link>
         </Button>  
       </h1>
-      <Grid container spacing={3} style={{ margin: 10 }}>
+      <Grid container spacing={2} style={{ marginLeft: 10 }}>
       {props.allStudents.map((student) => (
       <Grid item xs={2}>
           <Card className={classes.root}>
@@ -61,18 +59,13 @@ const AllStudentsView = (props) => {
                 {student.campus ? student.campus.name : 'NA'}
               </Typography>
               <Typography variant="body4" color="textSecondary" component="p">
-                <b>{student.gpa}</b>
+                <b>{(student.gpa <= 0.0) ? "NA" : student.gpa}</b>
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p" style={{ marginTop: 5 }}>
                 {student.email}
               </Typography>
             </CardContent>
           </CardActionArea>
-          <CardActions>
-            <Button variant="contained" size="small" color="secondary">
-              Delete
-            </Button>
-          </CardActions>
         </Card>
         </Grid>
       ))}

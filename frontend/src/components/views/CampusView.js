@@ -4,7 +4,7 @@ const CampusView = (props) => {
     const {campus} = props;
     return (
       <div>  
-        <Base />  
+        <Base />
         <h1>{campus.name}</h1>
         <p>{campus.description}</p>
         <ul>

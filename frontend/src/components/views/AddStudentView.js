@@ -11,14 +11,27 @@ export default function AddStudentView() {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
-  const [gpa, setGpa] = useState('')
-  const [imageUrl, setImageUrl] = useState('')
+  var [gpa, setGpa] = useState('')
+  var [imageUrl, setImageUrl] = useState('')
 
   const dispatch = useDispatch()
   const history = useHistory()
 
   function onAddStudent(e) {
     e.preventDefault()
+
+    if(firstName === "" || lastName === "" || email === "") {
+      return alert("First Name, Last Name and Email ID Fields are compulsory!")
+    }
+
+    if(gpa === 0.0 || gpa === "") {
+      gpa = 0.0
+    }
+
+    if(imageUrl === "") {
+      imageUrl = "https://www.kindpng.com/picc/m/50-504348_graduation-ceremony-square-academic-cap-silhouette-silhouette-student.png"
+    }
+    // https://eu2025.files.wordpress.com/2013/05/christian-franz-e1368792110185.jpg
     const postStudent = {
       firstName,
       lastName,
@@ -35,7 +48,7 @@ export default function AddStudentView() {
   return (
     <div>
         <Base />
-        <div style={{  }}>
+        <div>
           <h1 style={{ textAlign: 'center' }}>Add Student</h1>
 
           <form 
