@@ -1,6 +1,8 @@
 # CRUD_Application
 Platform For Managing Students and Campuses
 
+## Users: Saqifur Rahman (Saqifur-Rahman)
+
 ## Setup
 1. Install PostgreSQL with pgadmin and connect with PostgreSQL server.
 2. In `backend/database/utils/configDB`, mention your credentials:
